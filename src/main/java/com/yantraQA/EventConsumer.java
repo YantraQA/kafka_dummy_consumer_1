@@ -16,7 +16,7 @@ import static io.restassured.RestAssured.given;
 @Log4j2
 public class EventConsumer {
 
-    public static final String BOOTSTRAPSERVERS = "127.0.0.1:9092";
+    public static final String BOOTSTRAPSERVERS = "kafka:9092"; // if running from Docker compose, this will resolve to active broker
     public static final String TOPIC = "first_topic";
     public static final String KSERIALIZER="org.apache.kafka.common.serialization.StringSerializer";
     public static final String KDSERIALIZER="org.apache.kafka.common.serialization.StringDeserializer";
