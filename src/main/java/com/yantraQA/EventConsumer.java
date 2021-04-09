@@ -40,7 +40,7 @@ public class EventConsumer {
         KafkaConsumer<String, String> demoKafkaConsumer = new KafkaConsumer<String, String>(consumerProperties);
 
         demoKafkaConsumer.subscribe(topicList);
-        log.info("Subscribed to topic " + topic);
+        log.info("Subscribed to topic " + TOPIC);
         int i = 0;
         try {
             while (true) {
