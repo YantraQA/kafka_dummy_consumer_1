@@ -16,16 +16,16 @@ import static io.restassured.RestAssured.given;
 @Log4j2
 public class EventConsumer {
 
-    public static final String BOOTSTRAPSERVERS = "kafka:9092"; // if running from Docker compose, this will resolve to active broker
-    public static final String TOPIC = "first_topic";
+    public static final String BOOTSTRAPSERVERS = "kafka1:9091"; // if running from Docker compose, this will resolve to active broker
+    public static final String TOPIC = "notification";
     public static final String KSERIALIZER="org.apache.kafka.common.serialization.StringSerializer";
     public static final String KDSERIALIZER="org.apache.kafka.common.serialization.StringDeserializer";
 
     public static void main(String[] args) throws JsonProcessingException, InterruptedException {
 
-        String topic = "notification";
+        //String topic = "notification";
         List<String> topicList = new ArrayList();
-        topicList.add(topic);
+        topicList.add(TOPIC);
         Properties consumerProperties = new Properties();
         consumerProperties.put("bootstrap.servers", BOOTSTRAPSERVERS);
         consumerProperties.put("group.id", "Demo_Group");
