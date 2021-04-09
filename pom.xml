@@ -13,8 +13,44 @@
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.source>11</maven.compiler.source>
     </properties>
-
-
+    
+	<build>
+		<plugins>
+	
+		<plugin>
+			<groupId>com.google.cloud.tools</groupId>
+			<artifactId>jib-maven-plugin</artifactId>
+			<version>2.5.2</version>
+			<configuration>
+				<from>
+					<image>java:8</image>
+				</from>
+				<to>
+					<image>docker.io/yantraqa/kafka_dummy_consumer_1:latest</image>
+				</to>
+				<container>
+					<jvmFlags>
+						<jvmFlag>-Xms256m</jvmFlag>
+						<jvmFlag>-Xmx512m</jvmFlag>
+					</jvmFlags>
+					<ports>
+						<port>8003</port>
+					</ports>
+				</container>
+				<allowInsecureRegistries>true</allowInsecureRegistries>
+			</configuration>
+			<executions>
+				<execution>
+					<phase>install</phase>
+					<goals>
+						<goal>build</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+	</plugins>
+	</build>
+	
     <dependencies>
         <dependency>
             <groupId>org.apache.kafka</groupId>
